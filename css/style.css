@@ -1,0 +1,288 @@
+/* Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+/* Conteneur principal de la carte */
+#map {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+/* Conteneur de recherche */
+.search-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    min-width: 250px;
+}
+
+.search-container select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-container input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.search-container button {
+    padding: 8px 15px;
+    background: #007cba;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background: #005a87;
+}
+
+/* Panneau d'information */
+.info-panel {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    max-width: 350px;
+}
+
+.info-panel h4 {
+    color: #007cba;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.info-panel p {
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 14px;
+}
+
+.info-panel ul {
+    margin-left: 20px;
+    color: #666;
+}
+
+.info-panel li {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+/* Légende */
+.legend {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    min-width: 150px;
+}
+
+.legend h4 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+    border: 1px solid #333;
+    border-radius: 2px;
+}
+
+.legend-item span {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Styles des popups */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.leaflet-popup-content {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.popup-title {
+    font-weight: bold;
+    color: #007cba;
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #007cba;
+    padding-bottom: 5px;
+}
+
+.popup-info {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.popup-info strong {
+    color: #333;
+    font-weight: bold;
+}
+
+.popup-info span {
+    color: #666;
+}
+
+/* Écran de chargement */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading.hidden {
+    display: none;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007cba;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    font-size: 18px;
+    color: #007cba;
+    font-weight: bold;
+}
+
+/* Styles pour les contrôles Leaflet */
+.leaflet-control-layers {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.leaflet-control-zoom {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.leaflet-control-scale {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .search-container {
+        top: 5px;
+        right: 5px;
+        min-width: 200px;
+        padding: 10px;
+    }
+    
+    .info-panel {
+        bottom: 5px;
+        left: 5px;
+        max-width: 280px;
+        padding: 15px;
+    }
+    
+    .legend {
+        bottom: 5px;
+        right: 5px;
+        min-width: 120px;
+        padding: 15px;
+    }
+    
+    .popup-title {
+        font-size: 16px;
+    }
+    
+    .popup-info {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-container {
+        min-width: 180px;
+    }
+    
+    .info-panel {
+        max-width: 250px;
+    }
+    
+    .legend {
+        min-width: 100px;
+    }
+    
+    .info-panel h4 {
+        font-size: 16px;
+    }
+    
+    .info-panel p, .info-panel li {
+        font-size: 12px;
+    }
+}
