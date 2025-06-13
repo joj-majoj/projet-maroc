@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte interactive option 1</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    
+    <!-- Leaflet Draw CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="search-container">
+        <div>
+            <select id="searchLayer">
+                <option value="regions">Régions</option>
+                <option value="provinces">Provinces</option>
+                <option value="communes">Communes</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" id="searchInput" placeholder="Rechercher...">
+            <button onclick="searchFeature()">Rechercher</button>
+        </div>
+    </div>
+    
+    <div class="info-panel">
+        <h4>Portail Cartographique du Maroc</h4>
+        <p>Cliquez sur une entité pour afficher ses informations</p>
+        <p><strong>Outils disponibles :</strong></p>
+        <ul>
+            <li>Zoom avec molette</li>
+            <li>Mesure de distance</li>
+            <li>Contrôle des couches</li>
+            <li>Recherche par attributs</li>
+        </ul>
+    </div>
+    
+    <div class="legend">
+        <h4>Légende</h4>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: rgba(255, 0, 0, 0.6);"></div>
+            <span>Régions</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: rgba(0, 255, 0, 0.6);"></div>
+            <span>Provinces</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: rgba(0, 0, 255, 0.6);"></div>
+            <span>Communes</span>
+        </div>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Chargement des données...</p>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    
+    <!-- Leaflet Draw JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
